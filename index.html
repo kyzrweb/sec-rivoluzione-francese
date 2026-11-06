@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Seconda Rivoluzione Industriale</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome per le icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#D90429',
+                            darkred: '#8D0801',
+                            orange: '#F77F00',
+                            lightorange: '#FCBF49',
+                            dark: '#110002',
+                            card: '#1F0508'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #FF4D4D 0%, #F77F00 50%, #FCBF49 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px -10px rgba(247, 127, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-100 font-sans selection:bg-brand-orange selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-red/20 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-industry text-brand-orange text-2xl"></i>
+                <span class="font-serif font-bold text-xl text-white tracking-wide">STORIA 3° MEDIA</span>
+            </div>
+            <div class="hidden md:flex space-x-6 text-sm font-semibold text-gray-300">
+                <a href="#crisi" class="hover:text-brand-orange transition">La Crisi</a>
+                <a href="#protezionismo" class="hover:text-brand-orange transition">Protezionismo</a>
+                <a href="#energia" class="hover:text-brand-orange transition">Energia & Invenzioni</a>
+                <a href="#fabbrica" class="hover:text-brand-orange transition">Taylorismo & Fordismo</a>
+                <a href="#societa" class="hover:text-brand-orange transition">Belle Époque</a>
+                <a href="#quiz" class="hover:text-brand-orange transition">Quiz</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative py-24 px-6 overflow-hidden border-b border-brand-red/20">
+        <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/60 via-brand-dark/90 to-brand-dark"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-brand-red/20 border border-brand-red/40 text-brand-orange text-xs font-bold uppercase tracking-wider">
+                Presentazione di Storia
+            </span>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+                La Seconda <br>
+                <span class="gradient-text">Rivoluzione Industriale</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+                Dalla grande crisi di fine Ottocento alla nascita delle macchine a motore, della catena di montaggio e della società di massa.
+            </p>
+            <div class="pt-4">
+                <a href="#crisi" class="inline-flex items-center space-x-2 bg-gradient-to-r from-brand-red to-brand-orange text-white px-8 py-3.5 rounded-full font-bold shadow-lg hover:brightness-110 transition">
+                    <span>Inizia il Percorso</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenuto Principale -->
+    <main class="max-w-6xl mx-auto px-6 py-16 space-y-24">
+
+        <!-- 1. La Crisi Economica -->
+        <section id="crisi" class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-flex items-center space-x-2 text-brand-orange font-bold">
+                    <span class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-sm">1</span>
+                    <span>FINE DELL'OTTOCENTO</span>
+                </div>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">La Grande Crisi Economica Mondiale</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    Verso la fine dell'Ottocento l'economia mondiale rallenta ed entra in una forte fase di crisi causata da due motivi principali:
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start space-x-3 bg-brand-card p-4 rounded-xl border border-brand-red/20">
+                        <i class="fa-solid fa-wheat-awn text-brand-orange mt-1"></i>
+                        <span class="text-sm text-gray-300"><strong>Concorrenza agricola:</strong> Gli USA producono ed esportano in Europa cereali a prezzi bassissimi. Gli agricoltori europei guadagnano meno.</span>
+                    </li>
+                    <li class="flex items-start space-x-3 bg-brand-card p-4 rounded-xl border border-brand-red/20">
+                        <i class="fa-solid fa-store-slash text-brand-red mt-1"></i>
+                        <span class="text-sm text-gray-300"><strong>Sovrapproduzione industriale:</strong> Le industrie europee producono troppi beni che non riescono a vendere, portando molte fabbriche alla chiusura.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-brand-red to-brand-orange rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&q=80" alt="Fabbrica Ottocento" class="relative rounded-2xl object-cover w-full h-80 shadow-2xl">
+            </div>
+        </section>
+
+        <!-- 2. Protezionismo -->
+        <section id="protezionismo" class="bg-gradient-to-br from-brand-card to-brand-dark p-8 md:p-12 rounded-3xl border border-brand-orange/30 space-y-6">
+            <div class="inline-flex items-center space-x-2 text-brand-orange font-bold">
+                <span class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-sm">2</span>
+                <span>REAZIONI DEI GOVERNI</span>
+            </div>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">Il Protezionismo e i Grandi Gruppi</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-brand-orange flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved"></i> Che cos'è il Protezionismo?
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        I governi europei introducono <strong>tasse (dazi)</strong> sulle merci che arrivano dall'estero. In questo modo le merci straniere costano molto di più e i cittadini sono spinti a comprare solo i prodotti delle aziende agricole e industriali nazionali.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-brand-red flex items-center gap-2">
+                        <i class="fa-solid fa-industry"></i> I Grandi Gruppi Industriali
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Mentre le aziende più piccole falliscono, quelle più grandi le acquistano diventando sempre più potenti. Nascono così i <strong>grandi gruppi industriali (trust e monopoli)</strong> che controllano da soli interi settori dell'economia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Energia e Invenzioni -->
+        <section id="energia" class="space-y-8">
+            <div class="text-center space-y-3">
+                <div class="inline-flex items-center space-x-2 text-brand-orange font-bold">
+                    <span class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-sm">3</span>
+                    <span>LA SVOLTA</span>
+                </div>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">Nuove Fonti di Energia e Invenzioni</h2>
+                <p class="text-gray-400 max-w-xl mx-auto text-sm">Tra la fine dell'800 e l'inizio del '900 la crisi finisce grazie alle scoperte scientifiche e tecnologiche.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Elettricità -->
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-red/20 card-hover space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-brand-orange/20 flex items-center justify-center text-brand-orange text-2xl font-bold">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white">L'Elettricità</h3>
+                    <p class="text-gray-300 text-sm">Una nuova forma di energia che cambia per sempre la vita quotidiana e le fabbriche.</p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="bg-brand-dark px-3 py-1 rounded-full text-xs text-brand-orange border border-brand-orange/20">💡 Lampadina</span>
+                        <span class="bg-brand-dark px-3 py-1 rounded-full text-xs text-brand-orange border border-brand-orange/20">📠 Telegrafo</span>
+                        <span class="bg-brand-dark px-3 py-1 rounded-full text-xs text-brand-orange border border-brand-orange/20">📞 Telefono</span>
+                        <span class="bg-brand-dark px-3 py-1 rounded-full text-xs text-brand-orange border border-brand-orange/20">📻 Radio</span>
+                        <span class="bg-brand-dark px-3 py-1 rounded-full text-xs text-brand-orange border border-brand-orange/20">🎬 Cinema</span>
+                    </div>
+                </div>
+
+                <!-- Petrolio -->
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-red/20 card-hover space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-brand-red/20 flex items-center justify-center text-brand-red text-2xl font-bold">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white">Il Petrolio</h3>
+                    <p class="text-gray-300 text-sm">Una fonte energetica fondamentale che sostituisce gradualmente il carbone.</p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="bg-brand-dark px-3 py-1 rounded-full text-xs text-brand-red border border-brand-red/20">🚗 Motore a Scoppio</span>
+                        <span class="bg-brand-dark px-3 py-1 rounded-full text-xs text-brand-red border border-brand-red/20">🚜 Motore Diesel</span>
+                        <span class="bg-brand-dark px-3 py-1 rounded-full text-xs text-brand-red border border-brand-red/20">🏭 Nuovi Prodotti</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Taylorismo e Fordismo -->
+        <section id="fabbrica" class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative order-2 md:order-1">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80" alt="Catena di montaggio" class="rounded-2xl border border-brand-orange/30 shadow-2xl">
+            </div>
+            <div class="space-y-6 order-1 md:order-2">
+                <div class="inline-flex items-center space-x-2 text-brand-orange font-bold">
+                    <span class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-sm">4</span>
+                    <span>ORGANIZZAZIONE DEL LAVORO</span>
+                </div>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">Taylorismo e Fordismo</h2>
+                
+                <div class="space-y-4">
+                    <div class="border-l-4 border-brand-orange pl-4">
+                        <h4 class="font-bold text-white">Taylorismo (Frederick Taylor)</h4>
+                        <p class="text-sm text-gray-300">Divide il lavoro in piccole operazioni molto semplici. Ogni operaio esegue una sola operazione ripetuta centinaia di volte al giorno.</p>
+                    </div>
+                    <div class="border-l-4 border-brand-red pl-4">
+                        <h4 class="font-bold text-white">Fordismo (Henry Ford)</h4>
+                        <p class="text-sm text-gray-300">Introduce nelle fabbriche la <strong>catena di montaggio</strong>. Nel 1908 produce l'automobile <em>Modello T</em> a basso costo, accessibile a tanti acquirenti.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5 & 6. Belle Époque, Società di Massa e Mass Media -->
+        <section id="societa" class="grid md:grid-cols-2 gap-8">
+            <div class="bg-brand-card p-8 rounded-3xl border border-brand-orange/20 space-y-4">
+                <div class="inline-flex items-center space-x-2 text-brand-orange font-bold">
+                    <span class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-sm">5</span>
+                    <span>BELLE ÉPOQUE (1870-1914)</span>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-white">Società di Massa</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    È un'epoca di pace, benessere e fiducia nel progresso. Nasce la <strong>società di massa</strong>: un grande numero di persone condivide lo stesso livello di vita e acquista gli stessi prodotti (vestiti, automobili, elettrodomestici).
+                </p>
+            </div>
+
+            <div class="bg-brand-card p-8 rounded-3xl border border-brand-red/20 space-y-4">
+                <div class="inline-flex items-center space-x-2 text-brand-red font-bold">
+                    <span class="w-8 h-8 rounded-full bg-brand-red/20 flex items-center justify-center text-sm">6</span>
+                    <span>INFORMAZIONE E COMUNICAZIONE</span>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-white">I Mass Media e la Pubblicità</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Aumenta il numero di persone che sanno leggere e scrivere. Si diffondono i <strong>mass media</strong> (giornali, riviste, radio, cinema). Le industrie li usano con la <strong>pubblicità</strong> per spingere la gente a comprare i propri prodotti.
+                </p>
+            </div>
+        </section>
+
+        <!-- Quiz Interattivo -->
+        <section id="quiz" class="bg-gradient-to-r from-brand-darkred to-brand-card p-8 md:p-12 rounded-3xl border border-brand-red/40 space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="font-serif text-3xl font-bold text-white">🎯 Test di Verifica della Presentazione</h2>
+                <p class="text-gray-300 text-sm">Verifica cosa ha imparato la classe con le domande chiave!</p>
+            </div>
+
+            <div class="space-y-6 max-w-2xl mx-auto">
+                <!-- Domanda 1 -->
+                <div class="bg-brand-dark/80 p-5 rounded-2xl space-y-3">
+                    <p class="font-bold text-sm text-brand-orange">1. Quale nuova fonte energetica permette lo sviluppo del motore a scoppio?</p>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <button onclick="checkAnswer(this, false)" class="p-3 bg-brand-card rounded-lg text-left hover:bg-brand-red/20 border border-gray-700">A) Il Carbone</button>
+                        <button onclick="checkAnswer(this, true)" class="p-3 bg-brand-card rounded-lg text-left hover:bg-brand-red/20 border border-gray-700">B) Il Petrolio</button>
+                    </div>
+                </div>
+
+                <!-- Domanda 2 -->
+                <div class="bg-brand-dark/80 p-5 rounded-2xl space-y-3">
+                    <p class="font-bold text-sm text-brand-orange">2. Cos'è il Protezionismo?</p>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <button onclick="checkAnswer(this, true)" class="p-3 bg-brand-card rounded-lg text-left hover:bg-brand-red/20 border border-gray-700">A) Tasse sulle merci estere</button>
+                        <button onclick="checkAnswer(this, false)" class="p-3 bg-brand-card rounded-lg text-left hover:bg-brand-red/20 border border-gray-700">B) Aiuti alle merci straniere</button>
+                    </div>
+                </div>
+
+                <!-- Domanda 3 -->
+                <div class="bg-brand-dark/80 p-5 rounded-2xl space-y-3">
+                    <p class="font-bold text-sm text-brand-orange">3. Quale innovazione introduce Henry Ford in fabbrica?</p>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <button onclick="checkAnswer(this, false)" class="p-3 bg-brand-card rounded-lg text-left hover:bg-brand-red/20 border border-gray-700">A) Il motore a vapore</button>
+                        <button onclick="checkAnswer(this, true)" class="p-3 bg-brand-card rounded-lg text-left hover:bg-brand-red/20 border border-gray-700">B) La catena di montaggio</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 border-t border-brand-red/20 text-gray-500 text-xs">
+        Presentazione realizzata per la Terza Media • 2ª Rivoluzione Industriale
+    </footer>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('button');
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('hover:bg-brand-red/20');
+            });
+
+            if (isCorrect) {
+                btn.classList.add('bg-green-600', 'text-white', 'border-green-400');
+            } else {
+                btn.classList.add('bg-red-600', 'text-white', 'border-red-400');
+            }
+        }
+    </script>
+</body>
+</html>
