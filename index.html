@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <!-- AOS Library per Animazioni a comparsa allo scorrimento -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -21,8 +23,8 @@
                             darkred: '#8D0801',
                             orange: '#F77F00',
                             lightorange: '#FCBF49',
-                            dark: '#110002',
-                            card: '#1F0508'
+                            dark: '#0d0103',
+                            card: '#1b0407'
                         }
                     },
                     fontFamily: {
@@ -34,30 +36,45 @@
         }
     </script>
     <style>
+        /* Sfondo Animato */
+        body {
+            background: linear-gradient(-45deg, #0d0103, #1e0307, #34070a, #140205);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .gradient-text {
             background: linear-gradient(135deg, #FF4D4D 0%, #F77F00 50%, #FCBF49 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px -10px rgba(247, 127, 0, 0.3);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px -10px rgba(247, 127, 0, 0.4);
+        }
+
+        /* Effetto bagliore sulle immagini */
+        .img-glow {
+            box-shadow: 0 0 25px rgba(217, 4, 41, 0.25);
         }
     </style>
 </head>
-<body class="bg-brand-dark text-gray-100 font-sans selection:bg-brand-orange selection:text-white">
+<body class="text-gray-100 font-sans selection:bg-brand-orange selection:text-white overflow-x-hidden">
 
-    <!-- Navbar -->
+    <!-- Navbar (Senza il logo Storia 3° Media) -->
     <nav class="sticky top-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-red/20 px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <i class="fa-solid fa-industry text-brand-orange text-2xl"></i>
-                <span class="font-serif font-bold text-xl text-white tracking-wide">STORIA 3° MEDIA</span>
-            </div>
-            <div class="hidden md:flex space-x-6 text-sm font-semibold text-gray-300">
+        <div class="max-w-6xl mx-auto flex justify-center md:justify-end items-center">
+            <div class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-xs md:text-sm font-semibold text-gray-300">
                 <a href="#crisi" class="hover:text-brand-orange transition">La Crisi</a>
                 <a href="#protezionismo" class="hover:text-brand-orange transition">Protezionismo</a>
                 <a href="#energia" class="hover:text-brand-orange transition">Energia & Invenzioni</a>
@@ -70,34 +87,34 @@
 
     <!-- Hero Section -->
     <header class="relative py-28 px-6 overflow-hidden border-b border-brand-red/20">
-        <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80');"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/60 via-brand-dark/90 to-brand-dark"></div>
+        <div class="absolute inset-0 z-0 opacity-25 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/80 to-brand-dark"></div>
         
-        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-brand-red/20 border border-brand-red/40 text-brand-orange text-xs font-bold uppercase tracking-wider">
-                Presentazione Completa di Storia
+        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6" data-aos="zoom-in" data-aos-duration="1200">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-brand-red/20 border border-brand-red/40 text-brand-orange text-xs font-bold uppercase tracking-wider shadow-lg">
+                Presentazione di Storia
             </span>
             <h1 class="font-serif text-5xl md:text-7xl font-bold tracking-tight leading-tight">
                 La Seconda <br>
                 <span class="gradient-text">Rivoluzione Industriale</span>
             </h1>
             <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-                Un'analisi approfondita sulla grande trasformazione economica, sociale e tecnologica avvenuta tra la fine dell'Ottocento e l'inizio del Novecento.
+                Dalla grande crisi di fine Ottocento alla nascita delle macchine a motore, della catena di montaggio e della società di massa.
             </p>
             <div class="pt-4">
-                <a href="#crisi" class="inline-flex items-center space-x-2 bg-gradient-to-r from-brand-red to-brand-orange text-white px-8 py-3.5 rounded-full font-bold shadow-lg hover:brightness-110 transition">
-                    <span>Esplora la Presentazione</span>
-                    <i class="fa-solid fa-arrow-down"></i>
+                <a href="#crisi" class="inline-flex items-center space-x-2 bg-gradient-to-r from-brand-red to-brand-orange text-white px-8 py-3.5 rounded-full font-bold shadow-xl hover:brightness-110 transition duration-300">
+                    <span>Inizia la Presentazione</span>
+                    <i class="fa-solid fa-arrow-down animate-bounce"></i>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Contenuto Principale -->
-    <main class="max-w-6xl mx-auto px-6 py-16 space-y-24">
+    <main class="max-w-6xl mx-auto px-6 py-16 space-y-32">
 
         <!-- 1. La Crisi Economica Mondiale -->
-        <section id="crisi" class="space-y-8">
+        <section id="crisi" class="space-y-8" data-aos="fade-up">
             <div class="inline-flex items-center space-x-2 text-brand-orange font-bold">
                 <span class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-sm">1</span>
                 <span>FINE DELL'OTTOCENTO (1873-1896)</span>
@@ -105,34 +122,38 @@
             <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">1. Qual è la situazione dell'economia mondiale alla fine dell'Ottocento?</h2>
             
             <p class="text-gray-300 leading-relaxed text-lg">
-                Verso la fine dell'Ottocento l'economia mondiale entra in una fase di forte rallentamento e difficoltà generale (spesso chiamata <em>"Grande Depressione"</em>). Questa crisi economica ha principalmente due grandi cause storiche:
+                Verso la fine dell'Ottocento l'economia mondiale entra in una fase di forte rallentamento e difficoltà generale. Questa crisi economica ha principalmente due grandi cause storiche:
             </p>
 
-            <div class="grid md:grid-cols-2 gap-8 pt-2">
-                <div class="bg-brand-card p-6 rounded-2xl border border-brand-red/20 space-y-4">
+            <div class="grid md:grid-cols-2 gap-8 pt-4">
+                <!-- Card 1 -->
+                <div class="bg-brand-card/80 backdrop-blur-sm p-6 rounded-2xl border border-brand-red/30 space-y-4 card-hover img-glow" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80" alt="Agricoltura Grano" class="w-full h-48 object-cover rounded-xl border border-brand-orange/20">
                     <div class="flex items-center space-x-3 text-brand-orange text-xl font-bold">
                         <i class="fa-solid fa-wheat-awn text-2xl"></i>
-                        <h3>La Concorrenza Agricola Americana</h3>
+                        <h3>Concorrenza Agricola Americana</h3>
                     </div>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        Gli Stati Uniti d'America iniziano a produrre ed esportare verso l'Europa enormi quantità di cereali (come il grano) a prezzi estremamente bassi. Gli agricoltori europei non riescono a competere con questi prezzi, guadagnano molto di meno e cadono in una profonda crisi impoverendosi.
+                        Gli Stati Uniti d'America producono ed esportano in Europa grandi quantità di cereali a prezzi bassissimi. Gli agricoltori europei non riescono a vendere allo stesso prezzo degli americani e guadagnano molto di meno.
                     </p>
                 </div>
 
-                <div class="bg-brand-card p-6 rounded-2xl border border-brand-red/20 space-y-4">
+                <!-- Card 2 -->
+                <div class="bg-brand-card/80 backdrop-blur-sm p-6 rounded-2xl border border-brand-red/30 space-y-4 card-hover img-glow" data-aos="fade-left" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&q=80" alt="Sovrapproduzione industriale" class="w-full h-48 object-cover rounded-xl border border-brand-red/20">
                     <div class="flex items-center space-x-3 text-brand-red text-xl font-bold">
                         <i class="fa-solid fa-industry text-2xl"></i>
-                        <h3>La Sovrapproduzione Industriale</h3>
+                        <h3>Sovrapproduzione Industriale</h3>
                     </div>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        Le industrie europee producono troppi beni rispetto a quanti il mercato riesca ad assorbirne. Poiché le persone non hanno abbastanza soldi per acquistare tutta questa merce, le merci restano invendute nelle fabbriche. Senza guadagni sufficienti, molte aziende sono costrette a chiudere i battenti.
+                        Le industrie europee producono troppi beni e non riescono a venderli tutti. Poiché non guadagnano abbastanza per coprire i costi, molte aziende sono costrette a chiudere.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- 2. Protezionismo e Grandi Gruppi -->
-        <section id="protezionismo" class="bg-gradient-to-br from-brand-card to-brand-dark p-8 md:p-12 rounded-3xl border border-brand-orange/30 space-y-8">
+        <section id="protezionismo" class="bg-gradient-to-br from-brand-card/90 to-brand-dark/90 p-8 md:p-12 rounded-3xl border border-brand-orange/40 space-y-8 img-glow" data-aos="fade-up">
             <div class="inline-flex items-center space-x-2 text-brand-orange font-bold">
                 <span class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-sm">2</span>
                 <span>INTERVENTO DEGLI STATI</span>
@@ -140,80 +161,75 @@
             <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">2. Cosa fanno i governi per affrontare la crisi?</h2>
             
             <p class="text-gray-300 text-base leading-relaxed">
-                Tutti i governi europei devono intervenire direttamente per salvare ed aiutare le proprie economie nazionali. Per fare questo adottano due strategie fondamentali:
+                Tutti i governi europei intervengono per aiutare le loro economie nazionali. Per fare questo scelgono il protezionismo e favoriscono la crescita dei grandi gruppi industriali:
             </p>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-3 bg-brand-dark/60 p-6 rounded-2xl border border-brand-orange/20">
-                    <span class="text-xs font-bold uppercase text-brand-orange tracking-wider">Concetto Chiave</span>
+                <div class="space-y-4 bg-brand-dark/80 p-6 rounded-2xl border border-brand-orange/30 card-hover" data-aos="zoom-in-right" data-aos-delay="200">
+                    <div class="h-40 rounded-xl overflow-hidden mb-2">
+                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80" alt="Commercio e Dogana" class="w-full h-full object-cover">
+                    </div>
                     <h3 class="text-2xl font-bold text-white flex items-center gap-2">
                         <i class="fa-solid fa-shield-halved text-brand-orange"></i> Il Protezionismo
                     </h3>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        I governi abbandonano il libero scambio e introducono il <strong>protezionismo</strong>, vale a dire che mettono delle <strong>tasse (dazi doganali)</strong> su tutte le merci che provengono dall'estero. In questo modo le merci straniere diventano molto più care e la gente è incentivata a comprare unicamente i prodotti realizzati dalle aziende agricole e dalle industrie nazionali.
+                        I governi introducono <strong>tasse (dazi) sulle merci estero</strong>. In questo modo i prodotti stranieri costano molto di più e la gente acquista solo i prodotti delle aziende agricole e delle industrie nazionali.
                     </p>
                 </div>
 
-                <div class="space-y-3 bg-brand-dark/60 p-6 rounded-2xl border border-brand-red/20">
-                    <span class="text-xs font-bold uppercase text-brand-red tracking-wider">Evoluzione del Mercato</span>
+                <div class="space-y-4 bg-brand-dark/80 p-6 rounded-2xl border border-brand-red/30 card-hover" data-aos="zoom-in-left" data-aos-delay="400">
+                    <div class="h-40 rounded-xl overflow-hidden mb-2">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80" alt="Grandi Gruppi Industriali" class="w-full h-full object-cover">
+                    </div>
                     <h3 class="text-2xl font-bold text-white flex items-center gap-2">
                         <i class="fa-solid fa-sitemap text-brand-red"></i> I Grandi Gruppi Industriali
                     </h3>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        Durante la crisi, le piccole aziende non riescono a resistere e falliscono. Le industrie più grandi e ricche ne approfittano per comprarle a basso costo, diventando ancora più giganti e potenti. Nascono così i <strong>grandi gruppi industriali (trust e monopoli)</strong>, capaci di controllare da soli l'intero mercato di un settore.
+                        Mentre le aziende più piccole falliscono, quelle più grandi le acquistano diventando ancora più grandi. Nascono così i <strong>grandi gruppi industriali (trust e monopoli)</strong> che controllano da soli interi settori.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- 3. Fine della Crisi, Energia e Invenzioni -->
-        <section id="energia" class="space-y-8">
+        <section id="energia" class="space-y-8" data-aos="fade-up">
             <div class="inline-flex items-center space-x-2 text-brand-orange font-bold">
                 <span class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-sm">3</span>
                 <span>INNOVAZIONE SCIENTIFICA</span>
             </div>
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">3. Perché la crisi economica finisce e come riparte la crescita?</h2>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">3. Perché la crisi economica finisce?</h2>
             
             <p class="text-gray-300 text-lg leading-relaxed">
-                La crisi economica volge al termine tra la fine dell'Ottocento e l'inizio del Novecento, dando il via ufficiale alla <strong>Seconda Rivoluzione Industriale</strong>. Questa ripresa è dovuta all'introduzione e allo sfruttamento di due nuovissime fonti energetiche:
+                La crisi dell'economia finisce tra la fine dell'Ottocento e l'inizio del Novecento, quando comincia la <strong>Seconda Rivoluzione Industriale</strong> grazie a due nuove fonti energetiche:
             </p>
 
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Elettricità -->
-                <div class="bg-brand-card p-6 rounded-2xl border border-brand-orange/30 space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-brand-orange/20 flex items-center justify-center text-brand-orange text-2xl font-bold">
-                        <i class="fa-solid fa-bolt"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl font-bold text-white">L'Elettricità</h3>
+                <div class="bg-brand-card/80 p-6 rounded-2xl border border-brand-orange/30 space-y-4 card-hover img-glow" data-aos="flip-left" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&q=80" alt="Lampadina Edison" class="w-full h-44 object-cover rounded-xl border border-brand-orange/20">
+                    <h3 class="font-serif text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-brand-orange"></i> L'Elettricità
+                    </h3>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        L'elettricità diventa una nuova forma di energia versatile e pulita. Viene usata per illuminare le città e far funzionare le macchine nelle fabbriche, e permette di realizzare invenzioni straordinarie:
+                        Permette di inventare e introdurre l'uso della <strong>lampadina</strong>, del <strong>telegrafo</strong>, del <strong>telefono</strong>, della <strong>radio</strong> e del <strong>cinema</strong>.
                     </p>
-                    <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
-                        <li><strong>La Lampadina:</strong> trasforma le città e allunga l'orario di lavoro/vita.</li>
-                        <li><strong>Il Telegrafo e il Telefono:</strong> azzerano le distanze nelle comunicazioni.</li>
-                        <li><strong>La Radio e il Cinema:</strong> inaugurano l'era dell'intrattenimento.</li>
-                    </ul>
                 </div>
 
                 <!-- Petrolio -->
-                <div class="bg-brand-card p-6 rounded-2xl border border-brand-red/30 space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-brand-red/20 flex items-center justify-center text-brand-red text-2xl font-bold">
-                        <i class="fa-solid fa-fire"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl font-bold text-white">Il Petrolio</h3>
+                <div class="bg-brand-card/80 p-6 rounded-2xl border border-brand-red/30 space-y-4 card-hover img-glow" data-aos="flip-right" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80" alt="Motore e Petrolio" class="w-full h-44 object-cover rounded-xl border border-brand-red/20">
+                    <h3 class="font-serif text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-fire text-brand-red"></i> Il Petrolio
+                    </h3>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        L'uomo inizia a procedere all'estrazione e alla raffinazione del petrolio come nuova fonte di energia liquida. Questa scoperta porta al perfezionamento di motori rivoluzionari:
+                        L'uso del petrolio permette di sviluppare e perfezionare nuove invenzioni fondamentali come il <strong>motore a scoppio</strong> e il <strong>motore diesel</strong>.
                     </p>
-                    <ul class="text-sm text-gray-300 space-y-2 list-disc list-inside">
-                        <li><strong>Motore a Scoppio e Motore Diesel:</strong> permettono di creare le prime automobili, aerei e navi moderne.</li>
-                        <li><strong>Nuovi Prodotti Chimici:</strong> la chimica industriale sviluppa materiali sintetici, concimi e medicinali.</li>
-                    </ul>
                 </div>
             </div>
         </section>
 
         <!-- 4. Nuova Organizzazione del Lavoro -->
-        <section id="fabbrica" class="space-y-8">
+        <section id="fabbrica" class="space-y-8" data-aos="fade-up">
             <div class="inline-flex items-center space-x-2 text-brand-orange font-bold">
                 <span class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-sm">4</span>
                 <span>LAVORO IN FABBRICA</span>
@@ -221,82 +237,79 @@
             <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">4. Come si organizzano le industrie?</h2>
 
             <p class="text-gray-300 text-lg leading-relaxed">
-                Quando la produzione industriale riprende quota, le fabbriche si ingrandiscono ulteriormente ed arrivano ad assumere migliaia di operai. Per gestire masse così enormi di lavoratori, l'ingegnere statunitense <strong>Frederick Taylor</strong> riorganizza il sistema di lavoro:
+                Quando la produzione riprende, le industrie diventano sempre più grandi ed assumono migliaia di operai. L'ingegnere statunitense <strong>Frederick Taylor</strong> cambia il sistema di lavoro in due modi:
             </p>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-brand-card p-6 rounded-2xl border border-brand-orange/30 space-y-4">
+                <div class="bg-brand-card/80 p-6 rounded-2xl border border-brand-orange/30 space-y-4 card-hover" data-aos="fade-up-right" data-aos-delay="200">
+                    <div class="h-44 rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80" alt="Lavoro in Fabbrica" class="w-full h-full object-cover">
+                    </div>
                     <span class="px-3 py-1 bg-brand-orange/20 text-brand-orange rounded-full text-xs font-bold uppercase">Taylorismo</span>
-                    <h3 class="text-2xl font-bold text-white">Divisione Scientifica del Lavoro</h3>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        Taylor divide ogni processo produttivo in operazioni estremamente piccole e semplici, che chiunque può imparare ed eseguire in poco tempo. Ad ogni operaio viene assegnata una singola operazione da ripetere centinaia di volte al giorno.
+                        • Divide ogni lavoro in <strong>piccole operazioni molto semplici</strong>, che tutti possono eseguire in breve tempo.<br>
+                        • Assegna a ogni operaio <strong>una sola operazione</strong> e lo obbliga a eseguirla ogni giorno centinaia di volte.
                     </p>
                 </div>
 
-                <div class="bg-brand-card p-6 rounded-2xl border border-brand-red/30 space-y-4">
+                <div class="bg-brand-card/80 p-6 rounded-2xl border border-brand-red/30 space-y-4 card-hover" data-aos="fade-up-left" data-aos-delay="400">
+                    <div class="h-44 rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80" alt="Catena di montaggio Ford" class="w-full h-full object-cover">
+                    </div>
                     <span class="px-3 py-1 bg-brand-red/20 text-brand-red rounded-full text-xs font-bold uppercase">Fordismo</span>
-                    <h3 class="text-2xl font-bold text-white">La Catena di Montaggio di Henry Ford</h3>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        L'industriale <strong>Henry Ford</strong> applica le idee di Taylor introducendo in fabbrica la <strong>catena di montaggio</strong>: un nastro trasportatore porta il pezzo direttamente davanti all'operaio. Grazie a questo metodo nel 1908 produce l'automobile <em>Modello T</em> a costi bassissimi, rendendola accessibile a milioni di persone.
+                        Questo sistema viene applicato nelle fabbriche automobilistiche di <strong>Henry Ford</strong> ed è detto <strong>fordismo</strong>. Grazie alla <strong>catena di montaggio</strong>, Ford propone al pubblico un'automobile (la <em>Modello T</em>) a prezzo basso accessibile a tanti.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- 5 & 6. Belle Époque, Società di Massa e Mass Media -->
-        <section id="societa" class="space-y-8">
+        <section id="societa" class="space-y-8" data-aos="fade-up">
             <div class="inline-flex items-center space-x-2 text-brand-orange font-bold">
                 <span class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-sm">5 & 6</span>
                 <span>SOCIETÀ E CULTURA</span>
             </div>
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">5 & 6. La Belle Époque, la Società di Massa e i Mass Media</h2>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">5 & 6. Belle Époque, Società di Massa e Mass Media</h2>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Belle Epoque e Società di Massa -->
-                <div class="bg-brand-card p-8 rounded-3xl border border-brand-orange/30 space-y-4">
-                    <h3 class="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-[#F77F00] fa-champagne-glasses text-brand-orange"></i> La Belle Époque e la Società di Massa
-                    </h3>
+                <!-- Belle Epoque -->
+                <div class="bg-brand-card/80 p-8 rounded-3xl border border-brand-orange/30 space-y-4 card-hover img-glow" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80" alt="Belle Epoque Parigi" class="w-full h-44 object-cover rounded-xl border border-brand-orange/20">
+                    <h3 class="font-serif text-2xl font-bold text-white">Che cos'è la Belle Époque?</h3>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        La <strong>Belle Époque</strong> ("bella epoca") è il periodo che va dal 1870 al 1914. È un periodo caratterizzato da pace, benessere generale e grande fiducia nel progresso tecnologico. 
-                    </p>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        In questi anni nasce la <strong>società di massa</strong>: un numero enorme di cittadini dispone di un reddito sufficiente per comprare i prodotti dell'industria (auto, vestiti, elettrodomestici) diventando a tutti gli effetti dei <strong>consumatori</strong> che condividono gli stessi stili e livelli di vita.
+                        È l'espressione francese che significa "bella epoca" (dal 1870 al 1914). È un periodo di pace, benessere e fiducia nel progresso. Nasce la <strong>società di massa</strong>, in cui un grande numero di persone condivide lo stesso livello di vita e acquista gli stessi beni (automobili, vestiti, elettrodomestici).
                     </p>
                 </div>
 
-                <!-- Mass Media e Pubblicità -->
-                <div class="bg-brand-card p-8 rounded-3xl border border-brand-red/30 space-y-4">
-                    <h3 class="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-newspaper text-brand-red"></i> I Mass Media e la Nascita della Pubblicità
-                    </h3>
+                <!-- Mass Media -->
+                <div class="bg-brand-card/80 p-8 rounded-3xl border border-brand-red/30 space-y-4 card-hover img-glow" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80" alt="Giornali e Mass Media" class="w-full h-44 object-cover rounded-xl border border-brand-red/20">
+                    <h3 class="font-serif text-2xl font-bold text-white">I Mass Media e la Pubblicità</h3>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        Durante la Belle Époque la percentuale di popolazione in grado di leggere e scrivere cresce notevolmente. Questo porta ad una rapida diffusione dei <strong>mass media</strong> (giornali, riviste, radio e cinema).
-                    </p>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        Le grandi industrie iniziano a sfruttare i mass media per far conoscere le loro merci e convincere la gente ad acquistarle: nasce così la <strong>pubblicità</strong> moderna, che diventa uno dei motori principali dell'economia.
+                        Aumenta il numero di persone che sanno leggere e scrivere. Si diffondono i giornali, le riviste, la radio e il cinema (i <strong>mass media</strong>). Le grandi industrie li usano per far conoscere i prodotti con la <strong>pubblicità</strong>, uno dei motori dell'economia moderna.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- Sezione Autori della Presentazione -->
-        <section id="autori" class="bg-gradient-to-r from-brand-darkred to-brand-card p-8 md:p-12 rounded-3xl border border-brand-orange/40 text-center space-y-6">
+        <section id="autori" class="bg-gradient-to-r from-brand-darkred to-brand-card p-8 md:p-12 rounded-3xl border border-brand-orange/50 text-center space-y-6 img-glow" data-aos="flip-up">
             <div class="inline-block px-4 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider">
                 Crediti del Progetto
             </div>
             <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">Presentazione realizzata da:</h2>
             
             <div class="grid md:grid-cols-3 gap-6 pt-4 max-w-4xl mx-auto">
-                <div class="bg-brand-dark/80 p-6 rounded-2xl border border-brand-red/30 shadow-lg">
+                <div class="bg-brand-dark/90 p-6 rounded-2xl border border-brand-red/40 shadow-xl card-hover" data-aos="zoom-in" data-aos-delay="200">
                     <i class="fa-solid fa-user-graduate text-brand-orange text-4xl mb-3"></i>
                     <h3 class="font-bold text-xl text-white">Samuele Vaccaro</h3>
                 </div>
-                <div class="bg-brand-dark/80 p-6 rounded-2xl border border-brand-red/30 shadow-lg">
+                <div class="bg-brand-dark/90 p-6 rounded-2xl border border-brand-red/40 shadow-xl card-hover" data-aos="zoom-in" data-aos-delay="400">
                     <i class="fa-solid fa-user-graduate text-brand-orange text-4xl mb-3"></i>
                     <h3 class="font-bold text-xl text-white">Samuele Arini</h3>
                 </div>
-                <div class="bg-brand-dark/80 p-6 rounded-2xl border border-brand-red/30 shadow-lg">
+                <div class="bg-brand-dark/90 p-6 rounded-2xl border border-brand-red/40 shadow-xl card-hover" data-aos="zoom-in" data-aos-delay="600">
                     <i class="fa-solid fa-user-graduate text-brand-orange text-4xl mb-3"></i>
                     <h3 class="font-bold text-xl text-white">Robert Lorenzo Cotoveanu</h3>
                 </div>
@@ -307,8 +320,17 @@
 
     <!-- Footer -->
     <footer class="text-center py-8 border-t border-brand-red/20 text-gray-500 text-xs">
-        Presentazione di Storia • Terza Media • La Seconda Rivoluzione Industriale
+        Presentazione di Storia • La Seconda Rivoluzione Industriale
     </footer>
 
+    <!-- AOS Script per attivare le animazioni allo scorrimento -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 120
+        });
+    </script>
 </body>
 </html>
